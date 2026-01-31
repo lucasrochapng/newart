@@ -76,7 +76,7 @@ body {
     color: var(--cor-secundaria);
 }
 
-/* SOBRE MIM */
+/* SOBRE MIM ---------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .about-section {
     background: transparent;
@@ -166,7 +166,122 @@ body {
     25%, 75% { opacity: 0; }
 }
 
-/* projetos */
+/* CARROSSEL DE IMAGENS -------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Janela */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Esteira */
+.carousel-track {
+  display: flex;
+  will-change: transform;
+}
+
+/* Item */
+.tech-carousel-item {
+    flex: 0 0 auto;
+    width: 220px;
+    height: 320px;
+}
+
+/* Camada interna para zoom */
+.item-inner {
+    position: relative;
+  transition: transform 0.3s ease;
+}
+
+.item-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(125, 28, 34, 0.603); /* cor roxa suave (exemplo) */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+
+/* Imagem */
+.tech-carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* faz o corte automático */
+    object-position: center; /* centraliza o corte */
+    display: block;
+}
+
+.tech-carousel-item .item-inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;        /* corta o excesso */
+}
+
+/* Hover */
+.tech-carousel-item:hover .item-inner {
+  transform: scale(1.12);
+  z-index: 10;
+}
+
+.tech-carousel-item:hover .item-inner::after {
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content img {
+  max-width: 80vh;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* 🔥 ESSENCIAL */
+  display: block;
+  border-radius: 8px;
+}
+
+.modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+/* projetos -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .projetos {
     background: var(--cor-primaria);
     color: #fff;
@@ -229,7 +344,7 @@ body {
 }
 
 
-/* comentários */
+/* comentários ---------------------------------------------------------------------------------------------------------------------------------------------- */
 .comentarios {
     background: #f5f5f5;
     
@@ -301,77 +416,7 @@ body {
     transform: translateY(0);
 }
 
-/* TECNOLOGIAS - CARROSSEL INFINITO REAL */
-.tech-carousel {
-    background: #0a0a0a;
-    padding: 40px 0;
-    overflow: hidden;
-    position: relative;
-}
-
-.tech-track {
-    display: flex;
-    width: max-content;
-    animation: scrollTech 40s linear infinite;
-}
-
-.tech-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 35px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #fff;
-    opacity: 0.85;
-    white-space: nowrap;
-    transition: 0.3s;
-}
-
-.tech-item i {
-    font-size: 1.4rem;
-    color: var(--cor-secundaria);
-}
-
-.tech-item:hover {
-    opacity: 1;
-    transform: translateY(-3px);
-}
-
-@keyframes scrollTech {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-.tech-carousel::before,
-.tech-carousel::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 80px;
-    height: 100%;
-    z-index: 2;
-}
-
-.tech-carousel::before {
-    left: 0;
-    background: linear-gradient(to right, #0a0a0a, transparent);
-}
-
-.tech-carousel::after {
-    right: 0;
-    background: linear-gradient(to left, #0a0a0a, transparent);
-}
-
-.tech-carousel:hover .tech-track {
-    animation-play-state: paused;
-}
-
-/* FOOTER */
+/* FOOTER -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .footer {
     background-color: #000;
     padding: 1.5rem 1rem;
