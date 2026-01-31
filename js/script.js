@@ -106,36 +106,32 @@ if (window.innerWidth > 768) {
 const track = document.getElementById('carouselTrack');
 let isPaused = false;
 let position = 0;
-const speed = 0.5; // velocidade do movimento
+const speed = 0.35;
 
-// Pausa no hover
-track.addEventListener('mouseenter', () => {
-  isPaused = true;
-});
+// largura fixa (já definida no CSS)
+const itemWidth = 220;
 
-track.addEventListener('mouseleave', () => {
-  isPaused = false;
-});
+// hover pausa
+track.addEventListener('mouseenter', () => isPaused = true);
+track.addEventListener('mouseleave', () => isPaused = false);
 
 function animate() {
   if (!isPaused) {
     position -= speed;
-    track.style.transform = `translateX(${position}px)`;
 
-    const firstItem = track.children[0];
-    const firstItemWidth = firstItem.offsetWidth;
-
-    // Se o primeiro item saiu totalmente da tela
-    if (Math.abs(position) >= firstItemWidth) {
-      track.appendChild(firstItem);
-      position += firstItemWidth;
+    if (Math.abs(position) >= itemWidth) {
+      track.appendChild(track.firstElementChild);
+      position += itemWidth;
     }
+
+    track.style.transform = `translate3d(${position}px, 0, 0)`;
   }
 
   requestAnimationFrame(animate);
 }
 
 animate();
+
 
 const modal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
