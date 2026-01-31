@@ -12,9 +12,9 @@ window.addEventListener("scroll", () => {
 
 //Eu sou
 const texts = [
-    "Ilustrador",
-    "Pintor",
-    "Designer"
+    "Illustration",
+    "Illustration",
+    "Illustration"
 ];
 
 const typingElement = document.getElementById("typing");
