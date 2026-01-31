@@ -31,8 +31,8 @@ body {
 }
 
 .navbar-scrolled {
-    background: rgba(15, 15, 15, 0.95);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    background: rgba(125, 28, 35, 0.95);
+    box-shadow: 0 5px 20px rgba(60, 10, 14, 0.6);
 }
 
 
@@ -45,7 +45,7 @@ body {
 
 .hero {
     min-height: 100vh;
-    background: var(--cor-primaria);
+    background: var(--cor-secundaria);
 }
 
 .hero h1 {
@@ -54,15 +54,12 @@ body {
 }
 
 .hero img {
-    /* max-width: 80%; */
     width: 600px;
-    /* margin-left: -220px; */
-
 }
 
 .social-icons a {
-    color: var(--cor-secundaria);
-    border: 1px solid var(--cor-secundaria);
+    color: var(--cor-primaria);
+    border: 1px solid var(--cor-primaria);
     width: 40px;
     height: 40px;
     display: inline-flex;
@@ -75,8 +72,8 @@ body {
 }
 
 .social-icons a:hover {
-    background: var(--cor-secundaria);
-    color: #fff;
+    background: var(--cor-primaria);
+    color: var(--cor-secundaria);
 }
 
 .about {
