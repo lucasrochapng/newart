@@ -2,9 +2,9 @@ body {
     background: #000000;
     overflow-x: hidden;
     font-family: 'Segoe UI', sans-serif;
-    --cor-primaria: #0f0f0f;
-    --cor-secundaria: #0084ff;
-    --cor-terceira: #ccc;
+    --cor-primaria: #e9d8bf;
+    --cor-secundaria: #7d1c23;
+    --cor-terceira: #4e1115;
 
 }
 
@@ -45,7 +45,7 @@ body {
 
 .hero {
     min-height: 100vh;
-    background: #0f0f0f;
+    background: var(--cor-primaria);
 }
 
 .hero h1 {
@@ -156,13 +156,13 @@ body {
 }
 
 .metric-card {
-    background: #131313;
+    background: var(--cor-secundaria);
     padding: 25px;
     border-radius: 10px;
 }
 
 .metric-card h3 {
-    color: var(--cor-secundaria);
+    color: var(--cor-primaria);
     font-weight: 800;
 }
 
@@ -328,7 +328,7 @@ body {
     margin: 0;
     font-size: 0.9rem;
     letter-spacing: 1px;
-    color: #0084ff;
+    color: var(--cor-primaria);
     text-align: center;
 }
 
