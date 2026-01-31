@@ -76,12 +76,86 @@ body {
     color: var(--cor-secundaria);
 }
 
-.about {
-    /* background: #0a0a0a; */
+/* SOBRE MIM */
+
+.about-section {
     background: transparent;
 }
 
-.about-img {
+.about-card {
+    display: flex;
+    background: #e9d8bfec;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.about-image {
+    flex: 1;
+    min-height: 350px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content {
+    flex: 1.2;
+    padding: 40px;
+    color: var(--cor-secundaria);
+}
+
+.about-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cor-secundaria);
+}
+
+.about-tools {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.tool {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tool img {
+    width: 32px;
+    height: 32px;
+}
+
+.tool span {
+    font-size: 0.95rem;
+    color: var(--cor-secundaria);
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 768px) {
+    .about-card {
+        flex-direction: column;
+    }
+
+    .about-image {
+        height: 250px;
+    }
+}
+
+
+
+/* .about-img {
     max-width: 70%;
 }
 
@@ -92,7 +166,7 @@ body {
 
 .info-list li {
     margin-bottom: 8px;
-}
+} */
 
 /* Eu sou */
 #typing::after {
