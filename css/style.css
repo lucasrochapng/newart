@@ -263,7 +263,7 @@ body {
   max-height: 80vh;
   width: auto;
   height: auto;
-  object-fit: contain; /* 🔥 ESSENCIAL */
+  object-fit: contain; /* ESSENCIAL */
   display: block;
   border-radius: 8px;
 }
@@ -285,7 +285,6 @@ body {
 /* PROJETOS -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .projetos {
     background: var(--cor-primaria);
-    color: #fff;
     min-height: 100vh;
 }
 
@@ -298,7 +297,7 @@ body {
 .projetos-desc {
     max-width: 600px;
     margin: 15px auto 0;
-    color: var(--cor-secundaria);
+    color: var(--cor-secundaria) !important;
 }
 
 .projeto-item img {
