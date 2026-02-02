@@ -61,23 +61,24 @@ const filtros = document.querySelectorAll(".filtro");
 const projetos = document.querySelectorAll(".projeto-item");
 
 filtros.forEach(botao => {
-    botao.addEventListener("click", () => {
+  botao.addEventListener("click", () => {
 
-        filtros.forEach(btn => btn.classList.remove("ativo"));
-        botao.classList.add("ativo");
+    filtros.forEach(btn => btn.classList.remove("ativo"));
+    botao.classList.add("ativo");
 
-        const categoria = botao.getAttribute("data-filter");
+    const categoria = botao.getAttribute("data-filter");
 
-        projetos.forEach(projeto => {
-            if (categoria === "all" || projeto.classList.contains(categoria)) {
-                projeto.style.display = "block";
-            } else {
-                projeto.style.display = "none";
-            }
-        });
-
+    projetos.forEach(projeto => {
+      if (projeto.classList.contains(categoria)) {
+        projeto.style.display = "block";
+      } else {
+        projeto.style.display = "none";
+      }
     });
+
+  });
 });
+
 
 // SCROLL REVEAL
 const reveals = document.querySelectorAll(".reveal");
