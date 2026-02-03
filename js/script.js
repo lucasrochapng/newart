@@ -60,6 +60,18 @@ typeEffect();
 const filtros = document.querySelectorAll(".filtro");
 const projetos = document.querySelectorAll(".projeto-item");
 
+// função que aplica o filtro
+function filtrarProjetos(categoria) {
+  projetos.forEach(projeto => {
+    if (projeto.classList.contains(categoria)) {
+      projeto.style.display = "block";
+    } else {
+      projeto.style.display = "none";
+    }
+  });
+}
+
+// clique nos botões
 filtros.forEach(botao => {
   botao.addEventListener("click", () => {
 
@@ -67,17 +79,16 @@ filtros.forEach(botao => {
     botao.classList.add("ativo");
 
     const categoria = botao.getAttribute("data-filter");
-
-    projetos.forEach(projeto => {
-      if (projeto.classList.contains(categoria)) {
-        projeto.style.display = "block";
-      } else {
-        projeto.style.display = "none";
-      }
-    });
+    filtrarProjetos(categoria);
 
   });
 });
+
+// filtro inicial ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+  filtrarProjetos("comercial");
+});
+
 
 
 // SCROLL REVEAL
