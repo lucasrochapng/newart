@@ -704,3 +704,39 @@ body {
 
 
 }
+
+/* PORTFOLIO ============================================================================================================================================================== */
+
+#portfolio {
+    background-color: var(--cor-secundaria);
+}
+
+#portfolio h3 {
+    margin-top: 50px;
+    color: var(--cor-primaria);
+}
+
+.portfolio-slogan {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    color: var(--cor-primaria) !important;
+
+}
+
+.portfolio-carousel {
+    margin-bottom: 50px;
+    background-color: #4e111554;
+}
+
+.portfolio-carousel img {
+  max-height: 450px;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.carousel-item {
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
