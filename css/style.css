@@ -705,38 +705,101 @@ body {
 
 }
 
-/* PORTFOLIO ============================================================================================================================================================== */
+/* GALERIA DE IMAGENS ================================================================================================================================ */
 
-#portfolio {
-    background-color: var(--cor-secundaria);
+.projetos-header {
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-#portfolio h3 {
-    margin-top: 50px;
+.projetos-titulo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     color: var(--cor-primaria);
 }
 
-.portfolio-slogan {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
-    color: var(--cor-primaria) !important;
-
+.projetos-descricao {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cor-primaria);
 }
 
-.portfolio-carousel {
-    margin-bottom: 50px;
-    background-color: #4e111554;
+
+/* IMAGEM PRINCIPAL */
+.portfolio-gallery{
+    background-color: var(--cor-secundaria);
 }
 
-.portfolio-carousel img {
-  max-height: 450px;
+.gallery-main {
   width: 100%;
+  height: 500px;
+  background: #70191f;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-main img {
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: 14px;
+  transition: opacity 0.5s ease;
 }
 
-.carousel-item {
-    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+/* MINIATURAS */
+.gallery-thumbs-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+.gallery-thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.gallery-thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.thumb {
+  height: 80px;
+  cursor: pointer;
+  opacity: 0.6;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.thumb:hover,
+.thumb.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* BOTÕES */
+.thumb-nav.prev {
+  background: linear-gradient(to left, #7d1c23,#581319);
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 80px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.thumb-nav.next {
+  background: linear-gradient(to right, #7d1c23,#581319);
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 80px;
+  cursor: pointer;
+  opacity: 0.8;
+}

@@ -195,3 +195,7 @@ function closeModal() {
   modalImage.src = '';
   isPaused = false; // retoma o carrossel
 }
+
+
+
+
