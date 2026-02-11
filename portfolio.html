@@ -53,6 +53,18 @@
                 </p>
             </div>
 
+            <!-- FILTROS -->
+            <div class="gallery-filters text-center mb-4">
+                <button class="btn filtro active" data-category="commercial">Commercial</button>
+                <button class="btn filtro" data-category="romance">Romance</button>
+                <button class="btn filtro" data-category="retrato">Portrait</button>
+                <button class="btn filtro" data-category="pet">Pet</button>
+                <button class="btn filtro" data-category="paisagem">Landscape</button>
+                <button class="btn filtro" data-category="fantasia">Fantasy</button>
+                <button class="btn filtro" data-category="proibido">Proibido</button>
+            </div>
+
+
             <!-- IMAGEM PRINCIPAL -->
             <div class="gallery-main mb-4">
             <img id="mainImage" src="img/background.PNG" alt="">
@@ -62,28 +74,7 @@
             <div class="gallery-thumbs-wrapper">
             <button class="thumb-nav prev">‹</button>
 
-            <div class="gallery-thumbs" id="thumbs">
-                <img src="img/background.PNG" class="thumb active">
-                <img src="img/carrossel-2.PNG" class="thumb">
-                <img src="img/projeto-fantasia-2.jpg" class="thumb">
-                <img src="img/projeto-retrato-2.png" class="thumb">
-                <img src="img/projeto-fantasia-4.jpg" class="thumb">
-                <img src="img/projeto-paisagem-3.png" class="thumb">
-                <img src="img/projeto-comercial-1.png" class="thumb">
-                <img src="img/projeto-pet-4.png" class="thumb">
-                <img src="img/projeto-retrato-2.png" class="thumb">
-                <img src="img/projeto-romance-5.PNG" class="thumb">
-                <img src="img/projeto-romance-5.PNG" class="thumb">
-                <img src="img/projeto-romance-2.PNG" class="thumb">
-                <img src="img/carrossel-5.PNG" class="thumb">
-                <img src="img/carrossel-7.PNG" class="thumb">
-                <img src="img/carrossel-2.PNG" class="thumb">
-                <img src="img/carrossel-3.png" class="thumb">
-                <img src="img/carrossel-5.PNG" class="thumb">
-                <img src="img/carrossel-7.PNG" class="thumb">
-                <img src="img/carrossel-5.PNG" class="thumb">
-                <img src="img/carrossel-7.PNG" class="thumb">
-            </div>
+            <div class="gallery-thumbs" id="thumbs"></div>
 
             <button class="thumb-nav next">›</button>
             </div>
@@ -108,6 +99,31 @@
         <p id="creditos">DEVELOPED BY <a href="https://lucasrochapng.github.io/portfolio">LUCAS ROCHA</a> <i class="fas fa-mouse-pointer"></i></p>
     </footer>
 
+    <!-- MODAL AVISO CONTEÚDO SENSÍVEL -->
+    <div class="warning-modal" id="warningModal">
+        <div class="warning-content">
+            
+            <div class="warning-body">
+                <div class="warning-icon">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <!-- <img src="img/18.avif" alt="Aviso"> -->
+                </div>
+
+                <div class="warning-text">
+                    <p>
+                        O conteúdo desta categoria pode conter imagens sensíveis.
+                        Deseja realmente continuar?
+                    </p>
+                </div>
+            </div>
+
+            <div class="warning-buttons">
+                <button id="confirmWarning" class="btn-confirm">Prosseguir</button>
+                <button id="cancelWarning" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         let scrollY = 0;
@@ -125,73 +141,81 @@
         parallax();
     </script>
 
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-        const mainImage = document.getElementById('mainImage');
-        const thumbs = document.querySelectorAll('.thumb');
-
-        if (!mainImage || thumbs.length === 0) return;
-
-        let currentIndex = 0;
-        let interval;
-
-        function setActiveImage(index) {
-            thumbs.forEach(t => t.classList.remove('active'));
-            thumbs[index].classList.add('active');
-
-            mainImage.style.opacity = 0;
-
-            setTimeout(() => {
-            mainImage.src = thumbs[index].src;
-            mainImage.style.opacity = 1;
-            currentIndex = index;
-            }, 200);
-        }
-
-        // Clique nas miniaturas
-        thumbs.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-            setActiveImage(index);
-            resetAutoplay();
-            });
-        });
-
-        // Autoplay
-        function startAutoplay() {
-            interval = setInterval(() => {
-            const nextIndex = (currentIndex + 1) % thumbs.length;
-            setActiveImage(nextIndex);
-            }, 15000);
-        }
-
-        function resetAutoplay() {
-            clearInterval(interval);
-            startAutoplay();
-        }
-
-        // Inicia
-        startAutoplay();
-
-        });
-    </script> -->
-
+    <!-- FILTRO DA GALERIA DE IMAGENS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
         const mainImage = document.getElementById('mainImage');
-        const thumbs = document.querySelectorAll('.thumb');
+        const thumbsContainer = document.getElementById('thumbs');
+        const filters = document.querySelectorAll('.gallery-filters .filtro');
         const btnPrev = document.querySelector('.thumb-nav.prev');
         const btnNext = document.querySelector('.thumb-nav.next');
 
-        if (!mainImage || thumbs.length === 0) return;
-
         let currentIndex = 0;
+        let currentImages = [];
         let interval;
 
+        // 🔥 ORGANIZE SUAS IMAGENS AQUI
+        const galleryData = {
+            commercial: [
+            "img/background.PNG",
+            "img/projeto-comercial-1.png",
+            "img/carrossel-2.PNG"
+            ],
+            romance: [
+            "img/projeto-romance-1.png",
+            "img/projeto-romance-2.PNG"
+            ],
+            retrato: [
+            "img/projeto-retrato-1.jpg",
+            "img/projeto-retrato-2.png"
+            ],
+            pet: [
+            "img/projeto-pet-1.png",
+            "img/projeto-pet-2.png"
+            ],
+            paisagem: [
+            "img/projeto-paisagem-1.PNG",
+            "img/projeto-paisagem-2.PNG"
+            ],
+            fantasia: [
+            "img/projeto-fantasia-1.jpg",
+            "img/projeto-fantasia-2.jpg"
+            ],
+            proibido: [
+            "img/projeto-retrato-2.png",
+            "img/projeto-retrato-2.png",
+            "img/projeto-retrato-2.png"
+            ]
+        };
+
+        function renderGallery(category) {
+            thumbsContainer.innerHTML = "";
+            currentImages = galleryData[category];
+            currentIndex = 0;
+
+            currentImages.forEach((src, index) => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.classList.add("thumb");
+            if (index === 0) img.classList.add("active");
+
+            img.addEventListener("click", () => {
+                setActiveImage(index);
+                resetAutoplay();
+            });
+
+            thumbsContainer.appendChild(img);
+            });
+
+            mainImage.src = currentImages[0];
+        }
+
         function setActiveImage(index) {
-            if (index < 0) index = thumbs.length - 1;
-            if (index >= thumbs.length) index = 0;
+            if (index < 0) index = currentImages.length - 1;
+            if (index >= currentImages.length) index = 0;
+
+            const thumbs = document.querySelectorAll('.thumb');
 
             thumbs.forEach(t => t.classList.remove('active'));
             thumbs[index].classList.add('active');
@@ -199,21 +223,12 @@
             mainImage.style.opacity = 0;
 
             setTimeout(() => {
-            mainImage.src = thumbs[index].src;
+            mainImage.src = currentImages[index];
             mainImage.style.opacity = 1;
             currentIndex = index;
             }, 200);
         }
 
-        // Clique nas miniaturas
-        thumbs.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-            setActiveImage(index);
-            resetAutoplay();
-            });
-        });
-
-        // Setas
         btnNext.addEventListener('click', () => {
             setActiveImage(currentIndex + 1);
             resetAutoplay();
@@ -224,7 +239,6 @@
             resetAutoplay();
         });
 
-        // Autoplay
         function startAutoplay() {
             interval = setInterval(() => {
             setActiveImage(currentIndex + 1);
@@ -236,9 +250,64 @@
             startAutoplay();
         }
 
+        const modal = document.getElementById('warningModal');
+        const confirmBtn = document.getElementById('confirmWarning');
+        const cancelBtn = document.getElementById('cancelWarning');
+
+        let pendingCategory = null;
+        let lastCategory = "commercial";
+
+        filters.forEach(btn => {
+            btn.addEventListener("click", () => {
+
+                const selectedCategory = btn.dataset.category;
+
+                if (selectedCategory === "proibido") {
+                    pendingCategory = selectedCategory;
+                    modal.classList.add("active");
+                    return;
+                }
+
+                applyCategory(selectedCategory);
+            });
+        });
+
+        function applyCategory(category) {
+            filters.forEach(b => b.classList.remove("active"));
+            document.querySelector(`[data-category="${category}"]`).classList.add("active");
+
+            renderGallery(category);
+            resetAutoplay();
+            lastCategory = category;
+        }
+
+        confirmBtn.addEventListener("click", () => {
+            if (pendingCategory) {
+                applyCategory(pendingCategory);
+                pendingCategory = null;
+            }
+            modal.classList.remove("active");
+        });
+
+        cancelBtn.addEventListener("click", () => {
+            pendingCategory = null;
+            modal.classList.remove("active");
+
+            // mantém categoria anterior ativa
+            applyCategory(lastCategory);
+        });
+
+       
+        // Inicializa
+        renderGallery("commercial");
         startAutoplay();
+
         });
     </script>
+
+    
+
+
 
 
 
