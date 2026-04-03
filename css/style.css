@@ -574,7 +574,7 @@ body {
 /* Botão */
 .pacote-btn {
   margin: 0 30px 30px;
-  border-radius: 30px;
+  border-radius: 10px;
   padding: 10px;
   font-weight: 600;
   background: var(--cor-secundaria);
@@ -587,6 +587,34 @@ body {
   color: #fff;
 }
 
+/* CUSTOM QUOTES -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.custom-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.custom-desc {
+  max-width: 600px;
+  margin: 15px auto 0;
+  color: var(--cor-primaria);
+}
+
+.custom-btn {
+  margin: 30px 30px;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 600;
+  background: var(--cor-primaria);
+  color: var(--cor-secundaria);
+  transition: 0.3s;
+}
+
+.custom-btn:hover {
+  background: var(--cor-terceira);
+  color: #fff;
+}
 
 /* FOOTER -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 .footer {
