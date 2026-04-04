@@ -861,22 +861,150 @@ body {
   opacity: 0.8;
 }
 
-/* AVISO ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* FOR AUTHORS ------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-
-@keyframes scaleIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+/* ================= TOPO ================= */
+.topo {
+  padding: 80px 0;
+  background-color: var(--cor-secundaria);
 }
 
-@media (max-width: 576px) {
-    .warning-body {
-        flex-direction: column;
-        text-align: center;
-    }
+.topo h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+}
 
-    .warning-icon,
-    .warning-text {
-        flex: 1 1 100%;
-    }
+.topo p {
+  margin: 20px 0;
+  font-size: 18px;
+  color: white;
+}
+
+.personagem {
+  max-height: 400px;
+}
+
+/* ================= CARROSSEL ================= */
+/* TÍTULO DA SEÇÃO */
+.titulo-secao {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* DESCRIÇÃO */
+.descricao-secao {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.carrossel-section {
+  background: linear-gradient(rgba(0,0,0, 0.6)), url('/img/portfolio/commercial/2.png') center/cover no-repeat;
+  padding: 80px 0;
+}
+
+/* CARD */
+.card-custom {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.card-custom img {
+  width: 100%;
+  aspect-ratio: 12 / 18;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.card-custom h5 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-custom p {
+  font-size: 14px;
+}
+
+/* BOTÃO */
+.card-custom button {
+  margin-top: 10px;
+}
+
+/* CONTROLES */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+
+}
+
+.carousel-control-prev {
+    left: -50px;
+    width: 60px;
+}
+
+.carousel-control-next {
+    right: -50px;
+    width: 60px;
+}
+
+
+/* WHY -------------------------------------------------------------------------------- */
+.nova-section {
+  padding: 80px 0;
+  background-color: var(--cor-primaria); /* pode mudar */
+  color: var(--cor-secundaria);
+}
+
+/* TEXTOS */
+.bloco-texto {
+  margin-bottom: 25px;
+}
+
+.bloco-texto h4 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.bloco-texto p {
+  opacity: 0.8;
+  color: var(--cor-secundaria);
+}
+
+/* IMAGENS RETRATO */
+.img-retrato {
+  width: 100%;
+  /* aspect-ratio: 2 / 3; */
+  object-fit: cover;
+  /* border-radius: 10px; */
+  border-radius: 50%;
+}
+
+/* READY? ---------------------------------------------------------------------------- */
+/* SECTION CTA */
+.cta-section {
+  padding: 80px 0;
+  background-color: var(--cor-secundaria);
+  color: #fff;
+}
+
+/* LOGO */
+.cta-logo {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+/* TÍTULO */
+.cta-titulo {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* SUBTÍTULO */
+.cta-subtitulo {
+  font-size: 18px;
+  opacity: 0.8;
 }
