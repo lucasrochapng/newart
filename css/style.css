@@ -865,8 +865,14 @@ body {
 
 /* ================= TOPO ================= */
 .topo {
-  padding: 80px 0;
+  padding: 80px 0 0;
   background-color: var(--cor-secundaria);
+  display: flex;
+  align-items: center;
+}
+
+.topo .row {
+  align-items: flex-end;
 }
 
 .topo h1 {
@@ -881,8 +887,20 @@ body {
   color: white;
 }
 
+.topo button {
+  background-color: var(--cor-secundaria);
+  border-color: white;
+}
+
+.topo button:hover {
+  background-color: white;
+  color: var(--cor-secundaria);
+  border-color: white;
+}
+
 .personagem {
-  max-height: 400px;
+  max-height: 700px;
+  display: block;
 }
 
 /* ================= CARROSSEL ================= */
