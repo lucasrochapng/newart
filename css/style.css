@@ -587,6 +587,48 @@ body {
   color: #fff;
 }
 
+/* EXTRAS --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+.extras-section h2, p{
+  color: var(--cor-primaria);
+}
+
+.extra-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px 20px;
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer;
+}
+
+.extra-card h5 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--cor-secundaria);
+}
+
+.extra-card p {
+  font-size: 0.9rem;
+  color: #727272;
+  min-height: 40px;
+}
+
+.extra-price {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #00d370;
+}
+
+/* HOVER */
+.extra-card:hover {
+  transform: translateY(-8px);
+  border-color: #00ff88;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
 /* CUSTOM QUOTES -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 .custom-title {
