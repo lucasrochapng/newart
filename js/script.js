@@ -35,8 +35,8 @@ window.addEventListener("scroll", () => {
 //Eu sou
 const texts = [
     "Illustration",
-    "Illustration",
-    "Illustration"
+    "Character Design",
+    "Book Artist"
 ];
 
 const typingElement = document.getElementById("typing");
