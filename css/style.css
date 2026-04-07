@@ -929,12 +929,12 @@ body {
   color: var(--cor-primaria);
 }
 
-.topo button {
+.topo a {
   background-color: var(--cor-secundaria);
   border-color: white;
 }
 
-.topo button:hover {
+.topo a:hover {
   background-color: white;
   color: var(--cor-secundaria);
   border-color: white;
