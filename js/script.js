@@ -34,7 +34,7 @@ window.addEventListener("scroll", () => {
 
 //Eu sou
 const texts = [
-    "Illustration",
+    "Illustrator",
     "Character Design",
     "Book Artist"
 ];
