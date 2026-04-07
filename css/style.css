@@ -349,7 +349,7 @@ body {
 }
 
 /* FEEDBACK ---------------------------------------------------------------------------------------------------------------------------------------------- */
-.comentarios {
+/* .comentarios {
     background: var(--cor-primaria);
     
 }
@@ -412,7 +412,7 @@ body {
     font-size: 0.95rem;
     color: #555;
     margin-top: 15px;
-}
+} */
 
 /* SCROLL ANIMATION */
 .reveal {
@@ -926,7 +926,7 @@ body {
 .topo p {
   margin: 20px 0;
   font-size: 18px;
-  color: white;
+  color: var(--cor-primaria);
 }
 
 .topo button {
@@ -956,10 +956,11 @@ body {
 .descricao-secao {
   font-size: 18px;
   opacity: 0.8;
+  color: white;
 }
 
 .carrossel-section {
-  background: linear-gradient(rgba(0,0,0, 0.6)), url('../img/portfolio/commercial/2.png') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0, 0.6)), url('../img/portfolio/oc/1.png') center/cover no-repeat;
   padding: 80px 0;
 }
 
@@ -987,6 +988,7 @@ body {
 
 .card-custom p {
   font-size: 14px;
+  color: white;
 }
 
 /* BOTÃO */
@@ -1010,7 +1012,11 @@ body {
 /* WHY -------------------------------------------------------------------------------- */
 .nova-section {
   padding: 80px 0;
-  background-color: var(--cor-primaria); /* pode mudar */
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+}
+
+.nova-section p {
   color: var(--cor-secundaria);
 }
 
